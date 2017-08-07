@@ -1,0 +1,151 @@
+<div class="col-md-12 col-xs-12" ng-init="ConfiguracionInicio()">
+    <div class="" >
+
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Configuracion Actual</h2>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content">
+                        <p>Seleccionar para realizar una accion</p>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                <tr class="headings">
+
+                                    <th class="column-title">Nombre del CEI </th>
+                                    <th class="column-title" style="text-align:center;">Nombre del propietario </th>
+                                    <th class="column-title">Direccion </th>
+                                    <th class="column-title" style="text-align:center;">Telefono </th>
+                                    <th class="column-title">No. de Autorizacion </th>
+                                    <th class="column-title" style="text-align:center;">RUC </th>
+                                    <th class="column-title">Factura Inicio </th>
+                                    <th class="column-title">No. factura actual </th>
+                                    <th class="column-title" style="text-align:center;">Factura Final </th>
+                                    <th class="column-title">Iva. </th>
+                                    <th class="column-title no-link last"><span class="nobr">Action</span>
+                                    </th>
+                                    <th class="bulk-actions" colspan="7">
+                                        <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                    </th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr class="even pointer" ng-repeat="x in instituto">
+                                    <td class=" " > {{x.NOMBRE_INSTITUTO}}</td>
+                                    <td class=" " >{{x.NOMBRE_PROPIERTARIO}} </td>
+                                    <td class=" " > {{x.DIRECCION_INSTITUTO}}</td>
+                                    <td class=" " >{{x.TELF_INSTITUTO}} </td>
+                                    <td class=" " > {{x.NUM_AUTORIZACION}}</td>
+                                    <td class=" " >{{x.RUC}} </td>
+                                    <td class=" " > {{x.NUM_FAC_INICIO}}</td>
+                                    <td class=" " > {{x.NUM_ACTUAL}}</td>
+                                    <td class=" " >{{x.NUM_FINAL_FINAL}} </td>
+                                    <td class=" " >{{x.IVA}} </td>
+                                    <td class=" last"><a ng-click="modiInstituto(x)">Modificar</a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Datos del Centro Educativo</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <form class="form-horizontal form-label-left" ng-submit="modificarInstituto()">
+                <h6>En este formulario podra modificar los datos globales del centro de educacion inicial.</h6>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">Nombre del CEI</label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="nombreCIE" placeholder="Descripcion" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">Nombre Del propietario</label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="NomPropietario" placeholder="Descripcion" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">Direccion</label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="DireccionCEI" placeholder="Descripcion" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">Telefono</label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="telf" placeholder="Descripcion" required>
+                    </div>
+                </div>
+                <h6>Datos designados por el SRI:</h6>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">No. de autorizacion</label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="NumAutorizacion" placeholder="Descripcion" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">RUC</label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="Ruc" placeholder="Descripcion" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">No. factura Inicio </label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="No_fac_inicio" placeholder="Descripcion" required>
+                    </div>
+                </div>
+                <h6>Numero inicial para facturar:</h6>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">No. factura actual </label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="No_fac_actual" placeholder="Descripcion" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">No. factura Final </label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="No_fac_final" placeholder="Descripcion" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">Iva</label>
+                    <div class="col-md-4 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="iva" placeholder="Descripcion" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button type="reset" class="btn btn-primary">Cancel</button>
+                        <button type="submit" class="btn btn-success" >Modificar</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
+</div>

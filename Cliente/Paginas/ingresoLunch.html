@@ -1,0 +1,113 @@
+    <div class="col-md-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Ingreso Refrigerios</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left" ng-submit="registrarLunch()">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-3 col-xs-12">Descripcion</label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <input type="text" class="form-control" id="nombre_refri" ng-model="nom_refri" placeholder="Descripcion" required>
+                        </div>
+                      </div>
+                       <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-3 col-xs-12">Costo</label>
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control" id="costo_refri" ng-model="cos_refri" placeholder="Dolares" required>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-3 col-xs-12">Estado</label>
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                          <select class="form-control" id="select_refri">
+                            <option>No disponible</option>
+                            <option>Disponible</option>
+                          </select>
+                        </div>
+                      </div>
+                     
+
+                       <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="reset" class="btn btn-primary">Cancel</button>
+                                    <button type="submit" class="btn btn-success" >Agregar</button>
+                                </div>
+                            </div>
+                     
+
+                    </form>
+                  </div>
+                </div>
+
+        <div class="" ng-init="LunchInicio()">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+
+
+                    <div class="x_content">
+                        <br />
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Refrigerios</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="x_content">
+
+                                    <p>Seleccionar para realizar una accion</p>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-striped jambo_table bulk_action" style = "text-align: center">
+                                            <thead>
+                                            <tr class="headings">
+
+                                                <th class="column-title" style="text-align:center;">Id_Lunch </th>
+                                                <th class="column-title" style="text-align:center;">Descripcin</th>
+                                                <th class="column-title" style="text-align:center;">Precio </th>
+                                                <th class="column-title" style="text-align:center;">Estado </th>
+                                                <th class="column-title no-link last" style="text-align:center;"><span class="nobr">Action</span>
+                                                </th>
+                                                <th class="bulk-actions" colspan="7">
+                                                    <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                                </th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody >
+                                            <tr class="even pointer" ng-repeat="x in lunch">
+
+                                                <td class=" " > {{x.ID_REFRIGERIO}}</td>
+                                                <td class=" " >{{x.DESCRIPCION_REFRI}} </td>
+                                                <td class=" " > {{x.PRECIO}}</td>
+                                                <td class=" " > {{x.ESTADO_REFRI}}</td>
+                                                <td class=" last">
+                                                    <div class="dropdown" >
+                                                        <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary btn-xs" data-target="#" href="/page.html">
+                                                            Accion <span class="caret"></span>
+                                                        </a>
+                                                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                                            <li ><a ng-click="modiLunch(x)">Modificar</a></li>
+                                                            <li><a ng-click="eliminarLunch(x)">Borrar</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+              </div>

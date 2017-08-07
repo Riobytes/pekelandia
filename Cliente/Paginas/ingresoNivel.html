@@ -1,0 +1,101 @@
+              <div class="col-md-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Ingreso niveles</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left" ng-submit="registrarNiveles()">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-3 col-xs-12">Nombre</label>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" id="nombre_nivel" placeholder="Descripcion" required>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-3 col-xs-12">Precio</label>
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                          <input type="text" class="form-control" ng-model="precio_curso" placeholder="Unidades" required>
+                        </div>
+                      </div>
+
+                       <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="reset" class="btn btn-primary">Cancel</button>
+                                    <button type="submit" class="btn btn-success" >Agregar</button>
+                                </div>
+                            </div>
+                     
+
+                    </form>
+                  </div>
+                </div>
+
+                  <div class="" ng-init="NivelesInicio()">
+                      <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+
+                              <div class="x_content">
+                                  <br />
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <div class="x_panel">
+                                          <div class="x_title">
+                                              <h2>Lista de Niveles</h2>
+                                              <div class="clearfix"></div>
+                                          </div>
+
+                                          <div class="x_content">
+
+                                              <p>Seleccionar para realizar una accion</p>
+
+                                              <div class="table-responsive">
+                                                  <table class="table table-striped jambo_table bulk_action">
+                                                      <thead>
+                                                      <tr class="headings">
+                                                          <th class="column-title" style="text-align:center;">Id_Nivel </th>
+                                                          <th class="column-title" style="text-align:center;">Descripcin </th>
+                                                          <th class="column-title" style="text-align:center;">Precio </th>
+                                                          <th class="column-title no-link last" style="text-align:center;"><span class="nobr">Action</span>
+                                                          </th>
+                                                          <th class="bulk-actions" colspan="7">
+                                                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                                          </th>
+                                                      </tr>
+                                                      </thead>
+
+                                                      <tbody style="text-align:center;">
+                                                      <tr class="even pointer" ng-repeat="x in niveles">
+
+                                                          <td class=" " > {{x.ID_NIVEL}}</td>
+                                                          <td class=" " >{{x.DESCRIPCION_NIVEL}} </td>
+                                                          <td class=" " >{{x.PRECIO}} </td>
+                                                          <td class=" last">
+                                                              <div class="dropdown" >
+                                                              <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary btn-xs" data-target="#" href="/page.html">
+                                                                  Accion <span class="caret"></span>
+                                                              </a>
+                                                              <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                                                  <li ><a ng-click="modiNivel(x)">Modificar</a></li>
+                                                                  <li><a ng-click="eliminarNivel(x)">Borrar</a></li>
+                                                              </ul>
+                                                                 </div>
+                                                          </td>
+                                                      </tr>
+
+                                                      </tbody>
+                                                  </table>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+
+
+              </div>

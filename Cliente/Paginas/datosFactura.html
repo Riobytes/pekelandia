@@ -1,0 +1,310 @@
+
+
+<div class="" ng-init="initfac()">
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h2>Factura</h2>
+                    <div class="clearfix"></div>
+                </div>
+<br>
+                <div >
+                    <button  type='button' id="btnmat" class='btn btn-info' ng-click='FacMatricula()'>Factura para matricula</button>
+                    <button  type='button' id="btnmen"  class='btn btn-warning' ng-click='FacMensualidad()'>Factura para mensualidad</button>
+                    <button  type='button' id="btnreset"  class='btn btn-primary ' ng-click='reiniciar()'>Reiniciar</button>
+                </div>
+
+                <div id="fac_mensual">
+                    <div style="text-align: center">
+                        <h1>Facturacion para Matricula</h1>
+                    </div>
+                <div>
+                    <h6>Escoga un representante para llenar los datos de la factura</h6>
+                </div>
+                <form class="form-horizontal form-label-left">
+                <div class="row" >
+
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-12 col-xs-12" >Datos para la factura </label>
+                        <div class="col-md-3 col-sm-12 " >
+                            <select class="form-control" ng-change="llenarfac1()" ng-model="padrefactura" ng-options="item as item.NOMBRE for item in padres" ></select>
+                        </div>
+                   </div>
+                    <div class="form-group" id="group1">
+                        <label class="control-label col-md-4 col-sm-3 col-xs-12">Agregar Lunch</label>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+
+                            <select class="form-control" ng-model="lunchselect" ng-options="item.ID_REFRIGERIO as item.DESCRIPCION_REFRI for item in lunch" id="lunch"></select>
+                        </div>
+                        <button  type='button' class='btn btn-success' ng-click='SelectDatos()'>Agregar</button>
+                        <button  type='button' class='btn btn-danger' ng-click='QuitarDatos()'>Quitar</button>
+                    </div>
+
+
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+
+                        <br>
+                        <br>
+                        <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+
+                        </div>
+
+                            <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
+
+                                <table  border="1" >
+
+
+
+                                    <tr >
+                                        <th colspan="12" >
+                                            <h5 align="center">{{factura.PROPIETARIO}}</h5>
+                                            <h5 align="center">{{factura.NOMBRE_EMPRESA}}</h5>
+                                            <h5 align="center">   Direccion: {{factura.DIRECCION_EMPRE}} Telf: {{factura.TEL_EMPRESA}}   </h5>
+                                            <h5 align="center">Riobamba - Ecuador</h5>
+                                            <h5>RUC: {{factura.RUC}}  FACTURA: S:001-001-000 {{factura.NUM_FAC}}</h5>
+                                            <h5>AUT. SRI: {{factura.NUM_AUTORIZACION}} </h5>
+                                        </th>
+
+
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <th  colspan="12">  Fecha: 01-02-2017</th>
+                                    </tr>
+                                    <tr>
+                                        <th  colspan="12">  Cliente: {{factura.CLIENTE}}</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="6"> Ci o RUC: {{factura.CI_PADRE}} </th>
+                                        <th colspan="6"> Telf: {{factura.TEL_CLIENTE}} </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="12"> Direccion: {{factura.DIR_CLIENTE}} </th>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <th colspan="1"> CANT </th>
+                                        <th colspan="7"> DETALLE </th>
+                                        <th colspan="2"> V.UNIT </th>
+                                        <th colspan="2"> V.TOTAL </th>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">{{factura.DETALLE.CANTIDAD}}</td>
+                                        <td colspan="7">{{factura.DETALLE.DESCRIPCION}}</td>
+                                        <td colspan="2">{{factura.DETALLE.VALOR_UNITARIO}}</td>
+                                        <td colspan="2">{{factura.DETALLE.VALOR_TOTAL}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">{{CANTIDAD}}</td>
+                                        <td colspan="7">{{refrigerio.DESCRIPCION_REFRI}}</td>
+                                        <td colspan="2">{{refrigerio.PRECIO}}</td>
+                                        <td colspan="2">{{refrigerio.PRECIO}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1"></td>
+                                        <td colspan="7"></td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"></td>
+                                    </tr>
+
+
+
+
+
+                                    <tr>
+                                        <td colspan="8" rowspan="2">firma autorizada</td>
+                                        <td colspan="2">Subtotal</td>
+                                        <td colspan="2">{{factura.SUB_TOTAL}}</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td colspan="2">Iva tarifario 0%</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="8" rowspan="2">firma cliente</td>
+                                        <td colspan="2">Iva {{instituto.IVA}}%</td>
+                                        <td colspan="2">{{factura.IVA}}</td>
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td colspan="2">Total</td>
+                                        <td colspan="2">{{factura.TOTAL}}</td>
+                                    </tr>
+
+                                </table>
+                            </div>
+
+
+
+                </div>
+            </div>
+                </form>
+
+                </div>
+
+                <div id="fac_matricula">
+                    <div style="text-align: center">
+                        <h1>Facturacion para Mensualidad</h1>
+                    </div>
+                    <div>
+                        <h6>Escoga un representante para llenar los datos de la factura</h6>
+                    </div>
+                    <form class="form-horizontal form-label-left">
+                        <div class="row" >
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-12 col-xs-12" >Datos para la factura </label>
+                                <div class="col-md-3 col-sm-12 " >
+                                    <select class="form-control" ng-change="llenarfac2()" ng-model="padrefactura" ng-options="item as item.NOMBRE for item in padres" ></select>
+                                </div>
+                            </div>
+                            <div class="form-group" id="group">
+                                <label class="control-label col-md-4 col-sm-3 col-xs-12">Agregar Lunch</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+
+                                    <select class="form-control" ng-model="lunchselect" ng-options="item.ID_REFRIGERIO as item.DESCRIPCION_REFRI for item in lunch" id="lunch"></select>
+                                </div>
+                                <button  type='button' class='btn btn-success' ng-click='SelectDatos()'>Agregar</button>
+                                <button  type='button' class='btn btn-danger' ng-click='QuitarDatos()'>Quitar</button>
+                            </div>
+
+
+
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+
+                                <br>
+                                <br>
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+
+                                </div>
+
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
+
+                                    <table  border="1" >
+
+
+
+                                        <tr >
+                                            <th colspan="12" >
+                                                <h5 align="center">{{factura.PROPIETARIO}}</h5>
+                                                <h5 align="center">{{factura.NOMBRE_EMPRESA}}</h5>
+                                                <h5 align="center">   Direccion: {{factura.DIRECCION_EMPRE}} Telf: {{factura.TEL_EMPRESA}}   </h5>
+                                                <h5 align="center">Riobamba - Ecuador</h5>
+                                                <h5>RUC: {{factura.RUC}}  FACTURA: S:001-001-000 {{factura.NUM_FAC}}</h5>
+                                                <h5>AUT. SRI: {{factura.NUM_AUTORIZACION}} </h5>
+                                            </th>
+
+
+
+                                        </tr>
+
+
+                                        <tr>
+                                            <th  colspan="12">  Fecha: 01-02-2017</th>
+                                        </tr>
+                                        <tr>
+                                            <th  colspan="12">  Cliente: {{factura.CLIENTE}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="6"> Ci o RUC: {{factura.CI_PADRE}} </th>
+                                            <th colspan="6"> Telf: {{factura.TEL_CLIENTE}} </th>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="12"> Direccion: {{factura.DIR_CLIENTE}} </th>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <th colspan="1"> CANT </th>
+                                            <th colspan="7"> DETALLE </th>
+                                            <th colspan="2"> V.UNIT </th>
+                                            <th colspan="2"> V.TOTAL </th>
+
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1">{{factura.DETALLE.CANTIDAD}}</td>
+                                            <td colspan="7">{{factura.DETALLE.DESCRIPCION}}</td>
+                                            <td colspan="2">{{factura.DETALLE.VALOR_UNITARIO}}</td>
+                                            <td colspan="2">{{factura.DETALLE.VALOR_TOTAL}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1">{{CANTIDAD}}</td>
+                                            <td colspan="7">{{refrigerio.DESCRIPCION_REFRI}}</td>
+                                            <td colspan="2">{{refrigerio.PRECIO}}</td>
+                                            <td colspan="2">{{refrigerio.PRECIO}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1"></td>
+                                            <td colspan="7"></td>
+                                            <td colspan="2"></td>
+                                            <td colspan="2"></td>
+                                        </tr>
+
+
+
+
+
+                                        <tr>
+                                            <td colspan="8" rowspan="2">firma autorizada</td>
+                                            <td colspan="2">Subtotal</td>
+                                            <td colspan="2">{{factura.SUB_TOTAL}}</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td colspan="2">Iva tarifario 0%</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8" rowspan="2">firma cliente</td>
+                                            <td colspan="2">Iva {{instituto.IVA}}%</td>
+                                            <td colspan="2">{{factura.IVA}}</td>
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td colspan="2">Total</td>
+                                            <td colspan="2">{{factura.TOTAL}}</td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+
+                                <br>
+                                <br>
+
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-md-3 ">
+                    <button type="button"  class="btn btn-success" ng-click="printData()"  id="buttonimprimirfac">Imprimir Factura </button>
+
+
+
+                </div>
+
+
+
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,186 @@
+<div class="" ng-init="reporteInicio()">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Niveles</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="row">
+
+
+                        <h2 >Filtar por: </h2>
+
+                    <h2 class="col-md-2 col-sm-1 col-xs-12" style="text-align: right" id="labelreporte">Reporte: </h2>
+                        <div class="col-md-2 col-sm-2 col-xs-12">
+                            <select class="form-control"  id="seleccionar_reporte" name="nivel_es" ng-click="select_reporte()">
+                                <option >Reporte 1</option>
+                                <option >Reporte 2</option>
+                                <option >Reporte 3</option>
+                                <option >Reporte 4</option>
+                            </select>
+                        </div>
+
+
+                    <div class="form-group">
+                        <h2 class="col-md-1 col-sm-1 col-xs-12" style="text-align: right" id="hnivel">Nivel: </h2>
+                        <div class="col-md-2 col-sm-2 col-xs-12">
+
+                            <select class="form-control"  id="nivel" name="nivel_es" ng-click="selection_nivel()">
+                                <option ng-repeat="x in niveles" value="{{x}}">{{x.DESCRIPCION_NIVEL}}</option>
+                            </select>
+                        </div>
+                        <h2 class="col-md-1 col-sm-1 col-xs-12" id="labelpara">Paralelo: </h2>
+                        <div class="col-md-2 col-sm-2 col-xs-12">
+                            <select class="form-control"  id="paralelo"  ng-click="filtro_paralelor()">
+                                <option ng-repeat="x in paralelos" value="{{x}}">{{x.DESCRIPCION_PARA}}</option>
+                            </select>
+                        </div>
+
+
+
+                </div>
+
+
+                <div class="x_content">
+                    <br />
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Resultado</h2>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="x_content">
+
+
+                                <div  class="table-responsive" >
+                                    <table class="table table-striped jambo_table bulk_action" id="table1">
+                                        <thead style="text-align:center;">
+                                        <tr class="headings">
+
+                                            <th class="column-title">Cedula </th>
+                                            <th class="column-title" style="text-align:center;">Nombre del estudiante</th>
+                                            <th class="column-title" >Fecha de nacimiento</th>
+                                            <th class="column-title">Peso</th>
+                                            <th class="column-title" style="text-align:center;">Talla</th>
+                                            <th class="bulk-actions" colspan="7">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                        </thead >
+
+                                        <tbody style="text-align:center;">
+                                        <tr class="even pointer" ng-repeat="x in estu_mat">
+
+                                            <td class=" "> {{x.CEDULA}}</td>
+                                            <td class=" " >{{x.NOMBRE}} </td>
+                                            <td class=" " >{{x.FECHA_NACIMIENTO}} </i></td>
+                                            <td class=" " > {{x.PESO}}</td>
+                                            <td class=" " >{{x.TALLA}} </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table table-striped jambo_table bulk_action" id="table2">
+                                        <thead style="text-align:center;">
+                                        <tr class="headings">
+
+                                            <th class="column-title">Cedula </th>
+                                            <th class="column-title" style="text-align:center;">Nombre del estudiante</th>
+                                            <th class="column-title" >Alimentos Excluidos</th>
+                                            <th class="bulk-actions" colspan="7">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                        </thead >
+
+                                        <tbody style="text-align:center;">
+                                        <tr class="even pointer" ng-repeat="x in estu_mat">
+
+                                            <td class=" "> {{x.CEDULA}}</td>
+                                            <td class=" " >{{x.NOMBRE}} </td>
+                                            <td class=" " >{{x.ALIMENTOS_EXCLUIDOS}} </i></td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table table-striped jambo_table bulk_action" id="table3">
+                                        <thead style="text-align:center;">
+                                        <tr class="headings">
+
+                                            <th class="column-title">Cedula </th>
+                                            <th class="column-title" style="text-align:center;">Nombre del estudiante</th>
+                                            <th class="column-title" >Celular de papá</th>
+                                            <th class="column-title" >Celular de mamá</th>
+                                            <th class="column-title" >Teléfono de domicilio</th>
+                                            <th class="bulk-actions" colspan="7">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                        </thead >
+
+                                        <tbody style="text-align:center;">
+                                        <tr class="even pointer" ng-repeat="x in listaReporte3">
+
+                                            <td class=" "> {{x.CEDULA}}</td>
+                                            <td class=" " >{{x.NOMBRE}} </td>
+                                            <td class=" " >{{x.CELULARPA}} </td>
+                                            <td class=" " >{{x.CELULARMA}} </i></td>
+                                            <td class=" " >{{x.TEL_EMERGENCIA}} </i></td>
+
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table table-striped jambo_table bulk_action" id="table4">
+                                        <thead style="text-align:center;">
+                                        <tr class="headings">
+
+                                            <th class="column-title">Cedula </th>
+                                            <th class="column-title" style="text-align:center;">Nombre del estudiante</th>
+                                            <th class="column-title" >Nombre del representante</th>
+                                            <th class="column-title" >Cedula del representante</th>
+                                            <th class="column-title" >Direccion</th>
+                                            <th class="bulk-actions" colspan="7">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                        </thead >
+
+                                        <tbody style="text-align:center;">
+                                        <tr class="even pointer" ng-repeat="x in listaReporte3">
+
+                                            <td class=" "> {{x.CEDULA}}</td>
+                                            <td class=" " >{{x.NOMBRE}} </td>
+                                            <td class=" " >{{x.NOMBREPA}} </i></td>
+                                            <td class=" " > {{x.CEDULAPA}}</td>
+                                            <td class=" " >{{x.DIRECCION_RE}} </td>
+
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <br>
+                                    <div class="col-md-3 ">
+                                        <button id="botonimprimirlista" type="button"  class="btn btn-success" ng-click="Imprimir_lista_de_alumnos(listaReporte3)"  >Imprimir listado </button>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

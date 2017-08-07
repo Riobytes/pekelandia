@@ -1,0 +1,52 @@
+<div class="col-md-12 col-xs-12" ng-init="updateParalelosInicio()">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Ingreso paralelos</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <br />
+            <form class="form-horizontal form-label-left" ng-submit="modificarParalelos()">
+
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Nombre del paralelos</label>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <input type="text" class="form-control" ng-model="nameparalelo" placeholder="Descripcion">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Numero de estudiantes</label>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <input type="number" class="form-control" ng-model="num_estudiantes" placeholder="Unidades">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Filtrar:</label>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <input type="text" ng-model="busquedaPersonal" class="form-control" placeholder="Busqueda" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Agregar Personal:</label>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <select class="form-control" ng-model="personalselect" ng-options="item.CEDULA as item.NOMBRE for item in listpersonal | filter : busquedaPersonal" ></select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button type="reset" class="btn btn-primary" ng-click="cancelarParalelos()">Cancel</button>
+                        <button type="submit" class="btn btn-success" >Modificar</button>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+    </div>

@@ -1,0 +1,115 @@
+<div class="">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Ingreso nevo cargo</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" ng-submit="registrarCargo()">
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12"  for="descripcion_cargo">Descripcion del cargo: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <input type="text" id="descripcion_cargo" ng-model="descri_cargo" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12"  for="remuneracion">Remuneracion: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <input type="number" id="remuneracion" step="0.01" ng-model="remuneracion_cargo" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12"  for="alimentacion">Aliemtacion: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <input type="number" id="alimentacion" step="0.01" ng-model="alimentacion_cargo" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12"  for="fondos">Fondos de reserva: <span class="required">*</span>
+                            </label>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <input type="number" id="fondos" step="0.01" ng-model="fondos_cargo" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button type="reset" class="btn btn-primary">Cancel</button>
+                                <button type="submit" class="btn btn-success" >Agregar</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="col-md-12 col-sm-12 col-xs-12" ng-init="CargosInicio()">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Tipo de cargos</h2>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content">
+
+                        <p>Seleccionar para realizar una accion</p>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                <tr class="headings">
+
+                                    <th class="column-title" style="text-align:center;">Id Cargo </th>
+                                    <th class="column-title" style="text-align:center;">Descripcin del Cargo</th>
+                                    <th class="column-title" style="text-align:center;">Remuneracion</th>
+                                    <th class="column-title" style="text-align:center;">Alimentacion</th>
+                                    <th class="column-title" style="text-align:center;">Fondos de reserva</th>
+                                    <th class="column-title no-link last" style="text-align:center;"><span class="nobr">Action</span>
+                                    </th>
+                                    <th class="bulk-actions" colspan="7">
+                                        <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                    </th>
+                                </tr>
+                                </thead>
+
+                                <tbody style="text-align:center;">
+                                <tr class="even pointer" ng-repeat="x in listcargos">
+
+                                    <td class=" " > {{x.ID_CARGO}}</td>
+                                    <td class=" " >{{x.DESCRIPCION}} </td>
+                                    <td class=" " >{{x.REMUNERACION}} </td>
+                                    <td class=" " >{{x.ALIMENTACION}} </td>
+                                    <td class=" " >{{x.FONDO}} </td>
+                                    <td class=" last">
+                                        <div class="dropdown" >
+                                            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary btn-xs" data-target="#" href="/page.html">
+                                                Accion <span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                                <li ><a ng-click="modiCargo(x)">Modificar</a></li>
+                                                <li><a ng-click="eliminarCargo(x)">Borrar</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

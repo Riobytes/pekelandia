@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <!-----estilos -->
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" id="pagesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/overrideStyles.css" id="pageshee1"/>
+    <!-----angular-->
+
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular/angular-route.js"></script>
+    <script src="js/ngStorage.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="controllers/LoginController.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="LoginController">
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+<!-- inicio de menu-->
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="color: white" href="indexAdmin.html">PEKELANDIA</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active" style="background-color: #006294; color: white"><a href="indexAdmin.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-click="logout()"><a href="#"><span class="glyphicon glyphicon-log-out" style="color: white"></span> LogOut</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- final menu-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="jumbotron">
+    <div class="container" style="height: 200%">
+        <center> <img src="images/logo.png" style="max-width: 40% ; text-align: center !important;"/></center>
+        <!--<input type="submit" class="form-control" value="test" ng-click="validador()">-->
+
+    </div>
+</div>
+
+
+</body>
+</html>

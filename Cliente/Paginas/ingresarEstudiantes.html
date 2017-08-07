@@ -1,0 +1,87 @@
+
+
+
+<div class="" >
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Estudiantes</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="row">
+                    <div class="x_content">
+                        <br />
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Resultado</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="x_content">
+
+
+                                    <div  class="table-responsive" ng-init="initEstudiante()">
+                                        <table class="table table-striped jambo_table bulk_action table table-striped table-bordered" id="datatable">
+                                            <thead style="text-align:center;">
+                                            <tr class="headings">
+
+                                                <th class="column-title">Cedula</th>
+                                                <th class="column-title" style="text-align:center;">Nombre</th>
+                                                <th class="column-title" >Jornada</th>
+                                                <th class="column-title">Fecha de nacimiento</th>
+                                                <th class="column-title" style="text-align:center;">Talla</th>
+                                                <th class="column-title" >Peso</th>
+                                                <th class="column-title" >Alimentos excluidos</th>
+                                                <th class="column-title" >Telf. de emergencia</th>
+                                                <th class="column-title no-link last"><span class="nobr">Action</span>
+                                                </th>
+                                                <th class="bulk-actions" colspan="7">
+                                                    <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                                </th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody style="text-align:center;">
+                                            <tr class="even pointer" ng-repeat="x in estudiantes">
+
+                                                <td class=" "> {{x.CEDULA}}</td>
+                                                <td class=" " >{{x.NOMBRE}} </td>
+                                                <td class=" " >{{x.ID_JORNADA}} </i></td>
+                                                <td class=" " > {{x.FECHA_NACIMIENTO}}</td>
+                                                <td class=" " >{{x.TALLA}} </td>
+                                                <td class=" " >{{x.PESO}} </i></td>
+                                                <td class=" " >{{x.ALIMENTOS_EXCLUIDOS}} </i></td>
+                                                <td class=" " >{{x.TEL_EMERGENCIA}} </i></td>
+                                                <td class=" last">
+                                                    <div class="dropdown" >
+                                                        <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary btn-xs" data-target="#" href="/page.html">
+                                                            Accion <span class="caret"></span>
+                                                        </a>
+                                                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                                            <li ><a ng-click="modiEstudiante(x)">Modificar</a></li>
+                                                           <!-- <li><a href="#">Borrar</a></li>-->
+                                                        </ul>
+                                                    </div>
+                                                    <button ng-show="visualizarboton" class="btn btn-primary btn-xs" ng-click="ImprimirFac(x)" >Imprimir</button>
+
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

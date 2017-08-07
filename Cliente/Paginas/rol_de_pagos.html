@@ -1,0 +1,135 @@
+<div class="" ng-init="inicioPersonal()">
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Rol de pagos</h2>
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <form class="form-horizontal form-label-left">
+                    <br>
+                    <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-4 col-xs-12">Filtrar:</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <input type="text" ng-model="busquedaPersonal" class="form-control"  />
+                        </div>
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Aporte Patronal IESS:</label>
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                            <input type="number" step="0.01" ng-model="datos_IESS.APORTE_PATRONAL" class="form-control"  />
+                        </div>
+                        <div class="col-md-1 ">
+                            <button id="cambio_Patronal" type="button"  class="btn btn-warning" ng-click="cambiar_PATRONAL()"  >Cambiar </button>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-1 col-sm-4 col-xs-12">Agregar Personal:</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="form-control" ng-model="personalselect" ng-options="item as item.NOMBRE for item in listpersonal | filter : busquedaPersonal" ></select>
+                        </div>
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Aporte Personal al IESS:</label>
+                        <div class="col-md-2 col-sm-3 col-xs-12">
+                            <input type="number" step="0.01" ng-model="datos_IESS.APORTE_PERSONAL" class="form-control"  />
+                        </div>
+                        <div class="col-md-1 ">
+                            <button id="cambio_Personal" type="button"  class="btn btn-warning" ng-click="cambiar_PERSONAL()"  >Cambiar </button>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3 ">
+
+                        </div>
+                    <div class="col-md-2 ">
+                        <button id="selecionar_personal" type="button"  class="btn btn-info" ng-click="aceptar_pesonal(personalselect)"  >Aceptar </button>
+
+                    </div>
+                        </div>
+                </form>
+
+
+                <div class="x_content">
+                    <br />
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Resultado</h2>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="x_content">
+
+                                </div>
+                                <div class="row" align="center">
+                                    <div class="col-md-1 col-sm-2 col-xs-2">
+
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <h1>{{canpeticionnivel}}</h1>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <h1>{{numestupara}}</h1>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <h1>{{canactualestu}}</h1>
+                                    </div>
+
+
+
+
+
+                                </div>
+
+
+                                <div  class="table-responsive" >
+                                    <table class="table table-striped jambo_table bulk_action" id="datatable1">
+                                        <thead style="text-align:center;">
+                                        <tr class="headings">
+
+                                            <th class="column-title">Cedula</th>
+                                            <th class="column-title" style="text-align:center;">Nombre</th>
+                                            <th class="column-title" >Remuneracion</th>
+                                            <th class="column-title">Alimenacion</th>
+                                            <th class="column-title">Adelanto de sueldo</th>
+                                            <th class="column-title" style="text-align:center;">Fondos de reserva </th>
+                                            <th class="column-title" >Aporte patronal IEES </th>
+                                            <th class="column-title" >Aporte personal IESS </th>
+                                        </tr>
+                                        </thead >
+
+                                        <tbody style="text-align:center;">
+                                        <tr class="even pointer" ng-repeat="x in datos_per">
+
+                                            <td class=" "> {{x.CEDULA}}</td>
+                                            <td class=" " >{{x.NOMBRE}} </td>
+                                            <td class=" " >{{x.REMUNERACION}} </i></td>
+                                            <td class=" " > {{x.ALIMENTACION}}</td>
+                                            <td class=" " > {{x.SUELDO}}</td>
+                                            <td class=" " >{{x.FONDO}} </td>
+                                            <td class=" " >{{APORTE_PATRO}} </i></td>
+                                            <td class=" " >{{APORTE_PERSO}} </i></td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <br>
+                                    <div class="col-md-3 ">
+                                        <button id="imprimirRol" type="button"  class="btn btn-success" ng-click="Imprimir_rol_pagos()">Imprimir Rol de Pagos </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>

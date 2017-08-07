@@ -1,0 +1,168 @@
+<div class="" ng-init="pre_matriculaInicio()">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Niveles</h3>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="row">
+
+
+                        <h2 >Filtar por: </h2>
+                    <div class="form-group">
+                        <div class="col-md-1 col-sm-1 col-xs-12">
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12">
+                            <select class="form-control"  id="nivel" name="nivel_es" ng-click="select_nivel()">
+                                <option ng-repeat="x in niveles" value="{{x}}">{{x.DESCRIPCION_NIVEL}}</option>
+                            </select>
+                        </div>
+                        <h2 class="col-md-1 col-sm-1 col-xs-12">Estado: </h2>
+                        <div class="col-md-2 col-sm-2 col-xs-12">
+                            <select class="form-control"  id="estado_mat" name="nivel_es" ng-click="select_nivel()">
+                                <option >Pendiente</option>
+                                <option >Aceptado</option>
+                                <option >Rechazado</option>
+                            </select>
+                        </div>
+                        <h2 class="col-md-1 col-sm-1 col-xs-12" id="labelpara">Paralelo: </h2>
+                        <div class="col-md-2 col-sm-2 col-xs-12">
+                            <select class="form-control"  id="paralelo"  ng-click="filtro_paralelor()">
+                                <option ng-repeat="x in paralelos" value="{{x}}">{{x.DESCRIPCION_PARA}}</option>
+                            </select>
+                        </div>
+
+                </div>
+
+
+                <div class="x_content">
+                    <br />
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Resultado</h2>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="x_content">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-xs-1">
+
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-10">
+                                        <h2>({{peri_actual}}) - {{info.nivel}} - {{info.estado}} - {{info.paralelo}}</h2>
+                                    </div>
+
+
+                                </div>
+                                <div class="row" align="center">
+                                    <div class="col-md-1 col-sm-2 col-xs-2">
+
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        Numero de Peticiones
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        Numero de estudiantes
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        Numero Actual
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="row" align="center">
+                                    <div class="col-md-1 col-sm-2 col-xs-2">
+
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <h1>{{canpeticionnivel}}</h1>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <h1>{{numestupara}}</h1>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <h1>{{canactualestu}}</h1>
+                                    </div>
+
+
+
+
+
+                                </div>
+
+
+                                <div  class="table-responsive" >
+                                    <table class="table table-striped jambo_table bulk_action" id="datatable1">
+                                        <thead style="text-align:center;">
+                                        <tr class="headings">
+
+                                            <th class="column-title">Cedula estudiante </th>
+                                            <th class="column-title" style="text-align:center;">Nombre del estudiante </th>
+                                            <th class="column-title" >Años </th>
+                                            <th class="column-title">Meses </th>
+                                            <th class="column-title" style="text-align:center;">Tef. emergencia </th>
+                                            <th class="column-title" >Fecha de matricula </th>
+                                            <th class="column-title" >Estado dematricula </th>
+                                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                        </thead >
+
+                                        <tbody style="text-align:center;">
+                                        <tr class="even pointer" ng-repeat="x in estu_mat">
+
+                                            <td class=" "> {{x.CEDULA}}</td>
+                                            <td class=" " >{{x.NOMBRE}} </td>
+                                            <td class=" " >{{x.ANIOS}} </i></td>
+                                            <td class=" " > {{x.MESES}}</td>
+                                            <td class=" " >{{x.TEL_EMERGENCIA}} </td>
+                                            <td class=" " >{{x.FECHA}} </i></td>
+                                            <td class=" " >{{x.ESTADO_MAT}} </i></td>
+                                            <td class=" last">
+                                                <div class="dropdown" ng-show="visualizaracciones">
+                                                    <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary btn-xs" data-target="#" href="/page.html">
+                                                        Accion <span class="caret"></span>
+                                                    </a>
+                                                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                                        <li class="dropdown-submenu">
+                                                            <a tabindex="-1">Aceptado</a>
+                                                            <ul class="dropdown-menu " id="clickactu">
+                                                                <li><a ng-repeat="y in paralelos"  ng-click="AceptarParalelo(x,y)" >{{y.DESCRIPCION_PARA}}</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="#">Rechazado</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button ng-show="visualizarboton" class="btn btn-primary btn-xs" ng-click="ImprimirFac(x)" >Imprimir</button>
+
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <br>
+                                    <div class="col-md-3 ">
+                                        <button id="botonimprimirlista" type="button"  class="btn btn-success" ng-click="Imprimir_lista_de_alumnos(estu_mat)"  >Imprimir listado </button>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

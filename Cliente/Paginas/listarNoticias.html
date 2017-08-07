@@ -1,0 +1,65 @@
+
+    <div class="" ng-init="NoticiasInicio()">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_content">
+                        <br />
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Noticias</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="x_content">
+
+                                    <p>Seleccionar para realizar una accion</p>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-striped jambo_table bulk_action">
+                                            <thead>
+                                            <tr class="headings">
+                                                <th class="column-title">Id_noticia </th>
+                                                <th class="column-title" style="text-align:center;">Titulo</th>
+                                                <th class="column-title" style="text-align:center;">Resumen </th>
+                                                <th class="column-title" style="text-align:center;">Noticia </th>
+                                                <th class="column-title" style="text-align:center;">Fecha de publicacion </th>
+                                                <th class="column-title no-link last"><span class="nobr">Action</span>
+                                                </th>
+                                                <th class="bulk-actions" colspan="7">
+                                                    <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                                </th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            <tr class="even pointer" ng-repeat="x in noticias">
+                                                <td class=" " > {{x.ID_NOTICIA}}</td>
+                                                <td class=" " >{{x.TITULO}} </td>
+                                                <td class=" " >{{x.RESUMEN}} </td>
+                                                <td class=" " >{{x.NOTICIA}} </td>
+                                                <td class=" " >{{x.FECHA_NOTICIA}} </td>
+                                                <td class=" last">
+                                                    <div class="dropdown" >
+                                                        <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary btn-xs" data-target="#" href="/page.html">
+                                                            Accion <span class="caret"></span>
+                                                        </a>
+                                                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                                            <li ><a ng-click="modiNoticias(x)">Modificar</a></li>
+                                                            <li><a ng-click="eliminarNoticias(x)">Borrar</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>

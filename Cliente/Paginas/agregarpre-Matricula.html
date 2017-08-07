@@ -1,0 +1,463 @@
+
+        <!-- page content -->
+
+            
+
+
+          <div >
+            <div class="row" >
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Pre-Matricula <small>Formulario</small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <!-- Smart Wizard -->
+                    <p>Para realizar la pre-matricula realice los siguientes pasos:</p>
+                    <div id="wizard" class="form_wizard wizard_horizontal" >
+                      <ul class="wizard_steps">
+                        <li>
+                          <a href="#step-1">
+                            <span class="step_no">1</span>
+                            <span class="step_descr">
+                                              Paso 1<br />
+                                              <small>Verificacion</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-2">
+                            <span class="step_no">2</span>
+                            <span class="step_descr">
+                                              Paso 2<br />
+                                              <small>Datos del estudiante</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-3">
+                            <span class="step_no">3</span>
+                            <span class="step_descr">
+                                              Paso 3<br />
+                                              <small>Datos del Padre</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-4">
+                            <span class="step_no">4</span>
+                            <span class="step_descr">
+                                              Paso 4<br />
+                                              <small>Datos de la Madre</small>
+                                          </span>
+                          </a>
+                        </li>
+                      </ul>
+                      <div id="step-1" ng-init="pre_matriculaInicio()">
+                        <form class="form-horizontal form-label-left" ng-submit="consultar_cedula()">
+                          <h2 class="StepTitle">Verificacion de estudiante</h2>
+                           <p>
+                              Ingrese el numero de cedula del niño para verificar si se encuentra en la base de datos.
+                          </p>
+                           <div class="row">
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="cedula_es">Cedula <span >*</span>
+                            </label>
+                            <div class="col-md-2 ">
+                              <input type="text" id="cedula_es" required="required" minlength="10" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+ 
+                            </div>
+                            <div class="col-md-3 ">
+                                    <button type="submit"  class="btn btn-success">Verificar </button>
+
+                            </div>
+                           
+                        </div>
+                      </div>
+                         
+
+                        </form>
+
+                      </div>
+                      <div id="step-2">
+                            <div >
+                              <div class="clearfix"></div>
+                              <div class="row">
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <div class="x_panel">
+                                          <div class="x_title">
+                                              <h2>Formulario</h2>
+                                              <div class="clearfix"></div>
+                                          </div>
+                                          <div class="x_content">
+                                              <br />
+                                              <form class="form-horizontal form-label-left">
+
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="cedula" >Cédula <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input type="text" id="cedula" ng-model="estudiante[0].CEDULA" required="required" class="form-control col-md-7 col-xs-12" minlength="10" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textnom_usuario">Nombre <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input type="text" name="nombre_es" id="textnom_usuario" ng-model="estudiante[0].NOMBRE" required="required" class="form-control col-md-7 col-xs-12" onkeypress="return soloLetras(event)" maxlength="50">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Fecha de Nacimiento: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="textfecha_naci" ng-model="estudiante[0].FECHA_NACIMIENTO" name="fecha_na" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Sexo</label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <div id="gender" class="btn-group" data-toggle="buttons">
+                                                              <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                                  <input type="radio" ng-model="SEXOM" name="genero" id="opsexo" value="M"> &nbsp; Masculino &nbsp;
+                                                              </label>
+                                                              <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                                  <input type="radio" ng-model="SEXOF" id="opsexo" name="gender" value="F"> Femenino
+                                                              </label>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="numtalla" class="control-label col-md-4 col-sm-3 col-xs-12">Talla</label>
+                                                      <div class="col-md-2 col-sm-6 col-xs-12">
+                                                          <input id="numtalla" ng-model="estudiante[0].TALLA" class="form-control col-md-1" type="number" name="talla_es" placeholder="cm." onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="numpeso" class="control-label col-md-4 col-sm-3 col-xs-12">Peso</label>
+                                                      <div class="col-md-2 col-sm-6 col-xs-12">
+                                                          <input id="numpeso" ng-model="estudiante[0].PESO" class="form-control col-md-2 col-xs-12" type="number" name="peso_es" placeholder="lb." onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="numtorax" class="control-label col-md-4 col-sm-3 col-xs-12" >Torax</label>
+                                                      <div class="col-md-2 col-sm-6 col-xs-12">
+                                                          <input id="numtorax" ng-model="estudiante[0].TORAX" class="form-control col-md-2 " type="number" name="torax_es" placeholder="cm." onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Jornada</label>
+                                                      <div class="col-md-2 col-sm-6 col-xs-12">
+
+                                                          <select class="form-control" ng-model="jornadaselect" ng-options="item.ID_JORNADA as item.DESCRIPCION_JORNADA for item in jornadas" id="jornada"></select>
+
+
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Nivel</label>
+                                                      <div class="col-md-2 col-sm-6 col-xs-12">
+
+                                                          <select class="form-control" ng-model="nivelselect" ng-options="item.ID_NIVEL as item.DESCRIPCION_NIVEL for item in niveles" id="nivel"></select>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Lunch</label>
+                                                      <div class="col-md-2 col-sm-6 col-xs-12">
+
+                                                          <select class="form-control" ng-model="lunchselect" ng-options="item.ID_REFRIGERIO as item.DESCRIPCION_REFRI for item in lunch" id="lunch"></select>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textalimen_exc">Alimentos Excluidos <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <textarea type="text" id="textalimen_exc" ng-model="estudiante[0].ALIMENTOS_EXCLUIDOS" required="required" class="form-control col-md-7 col-xs-12"></textarea>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textprob_salud">Problemas de salud <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <textarea type="text" id="textprob_salud" ng-model="estudiante[0].PROBLEMAS_SALUD" required="required" class="form-control col-md-7 col-xs-12"></textarea>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textaler_niño">Alergias del niño <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <textarea type="text" id="textaler_niño" ng-model="estudiante[0].ALERGIAS" required="required" class="form-control col-md-7 col-xs-12"></textarea>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textmedi_recibe">Medicacion que recibe <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <textarea type="text" id="textmedi_recibe" ng-model="estudiante[0].MEDICACION" required="required" class="form-control col-md-7 col-xs-12"></textarea>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="text_nom_pedia">Nombre del Pediatra <span class="required">*</span>
+                                                  </label>
+                                                      <div class="col-md-3 col-sm-6 col-xs-12">
+                                                          <input type="text" id="text_nom_pedia" ng-model="estudiante[0].PEDIATRA" required="required" class="form-control col-md-7 col-xs-12" onkeypress="return soloLetras(event)" maxlength="50">
+                                                      </div>
+                                                      <label class="control-label col-md-2 col-sm-3 col-xs-12" for="numtelf">Tel. Pediatra <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-2 col-sm-6 col-xs-12">
+                                                          <input type="text" id="numtelf" ng-model="estudiante[0].TEL_PEDIATRA" required="required" class="form-control col-md-7 col-xs-12" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textreci_niño">Persona que recibe al niño <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-3 col-sm-6 col-xs-12">
+                                                          <input type="text" id="textreci_niño" ng-model="estudiante[0].PERSO_RECIBIR_NINO" required="required" class="form-control col-md-7 col-xs-12" onkeypress="return soloLetras(event)" maxlength="50">
+                                                      </div>
+                                                      <label class="control-label col-md-2 col-sm-3 col-xs-12" for="telf_emerg">Tel. Emerg. <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-2 col-sm-6 col-xs-12">
+                                                          <input type="text" id="telf_emerg" ng-model="estudiante[0].TEL_EMERGENCIA" required="required" class="form-control col-md-7 col-xs-12" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textobserv">Observaciones <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <textarea type="text" id="textobserv" ng-model="estudiante[0].OBSERVACIONES" required="required" class="form-control col-md-7 col-xs-12"></textarea>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textcentro_edu">Centro Anterior <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input type="text" id="textcentro_edu" ng-model="estudiante[0].CENTRO_EDU_ANTERIOR" required="required" class="form-control col-md-7 col-xs-12">
+                                                      </div>
+                                                  </div>
+
+                                                  <div class="ln_solid"></div>
+                                                  <div class="form-group">
+                                                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                          <button id="button1" button type='button' class='btn btn-primary'>Cancelar</button>
+                                                          <button id="button2" type='submit' class='btn btn-success' ng-click='enviarDatos()'>Ingresar</button>
+                                                          <button id="button3" button type='submit' class='btn btn-primary'>Cancelar</button>
+                                                          <button id="button4" type='button' class='btn btn-success' ng-click='enviarModificacion()'>Modificar</button>
+                                                      </div>
+                                                  </div>
+
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              </div>
+                        
+                        
+                      </div>
+                      <div id="step-3">
+                              <div >
+                              <div class="clearfix"></div>
+                              <div class="row">
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <div class="x_panel">
+                                          <div class="x_title">
+                                              <h2>Formulario ingreso datos del padre</h2>
+                                              <div class="clearfix"></div>
+                                          </div>
+                                          <div class="x_content">
+                                             
+                                              <h2>Padre</h2>
+                                              <form id="demo-form3" data-parsley-validate class="form-horizontal form-label-left">
+
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="cedula" >Cédula <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input type="text" id="textcedulapa" ng-model="padre[0].CI_PADRE" required="required" class="form-control col-md-7 col-xs-12" minlength="10" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textnombrepa">Nombre <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input type="text" name="nombre_es" id="textnombrepa" ng-model="padre[0].NOMBRE" required="required" class="form-control col-md-7 col-xs-12" onkeypress="return soloLetras(event)" maxlength="50">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Lugar de trabajo: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="textlugar_trapa" ng-model="padre[0].LUGAR_TRABAJO" name="fecha_na" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Direccion de trabajo: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="textdir_trapa" ng-model="padre[0].DIRECCION_TRABAJO" name="fecha_na" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                                      </div>
+                                                  </div>
+                                                   <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Telefono: <span class="required">*</span >
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="texttel_pa" ng-model="padre[0].TEL_PADRE" name="fecha_na" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text"  maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="textemail_pa" ng-model="padre[0].EMAIL" name="fecha_na" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Direccion de domicilio: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="textdir_do_pa" ng-model="padre[0].DIRECCION_DOMICILIO" name="fecha_na" class="date-picker form-control col-md-6 col-xs-12" required="required" type="text">
+                                                      </div>
+                                                  </div>
+                                                   <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12 ">Tipo de vivienda:</label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <select class="form-control" id="viviendapa" name="lunch_es">
+                                                              <option >Propia</option>
+                                                              <option>Arrendada</option>   
+                                                              <option>Prestada</option>     
+                                                          </select>
+                                                      </div>
+                                                  </div>
+                                                   <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Telefono Aux: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="texttel_aux_pa" ng-model="padre[0].TEL_AUX" name="fecha_na" class="date-picker form-control col-md-6 col-xs-12" required="required" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+                                                  </div>
+                                                  <br>
+                                                 <div>
+                                                   <h2>Madre</h2>
+                                                 </div>
+
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textcedulama" >Cédula <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input type="text" id="textcedulama" ng-model="madre[0].CI_PADRE" required="required" class="form-control col-md-7 col-xs-12" minlength="10" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12" for="textnombrema">Nombre <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input type="text" name="nombre_es" id="textnombrema" ng-model="madre[0].NOMBRE" required="required" class="form-control col-md-7 col-xs-12" onkeypress="return soloLetras(event)" maxlength="50">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Lugar de trabajo: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="textlugar_trama" ng-model="madre[0].LUGAR_TRABAJO" name="fecha_na" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Direccion de trabajo: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="textdir_trama" ng-model="madre[0].DIRECCION_TRABAJO" name="fecha_na" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                                      </div>
+                                                  </div>
+                                                   <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Telefono: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="texttel_ma" ng-model="madre[0].TEL_PADRE" name="fecha_na" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="textemail_ma" ng-model="madre[0].EMAIL" name="fecha_na" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Direccion de domicilio: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="textdir_do_ma" ng-model="madre[0].DIRECCION_DOMICILIO" name="fecha_na" class="date-picker form-control col-md-6 col-xs-12" required="required" type="text">
+                                                      </div>
+                                                  </div>
+                                                   <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12 ">Tipo de vivienda:</label>
+                                                      <div class="control-label col-md-4 col-sm-3 col-xs-12 ">
+                                                          <select class="form-control" id="viviendama" name="lunch_es">
+                                                              <option >Propia</option>
+                                                              <option>Arrendada</option>   
+                                                              <option>Prestada</option>     
+                                                          </select>
+                                                      </div>
+                                                  </div>
+                                                   <div class="form-group">
+                                                      <label class="control-label col-md-4 col-sm-3 col-xs-12">Telefono Aux: <span class="required">*</span>
+                                                      </label>
+                                                      <div class="col-md-4 col-sm-6 col-xs-12">
+                                                          <input id="texttel_aux_ma" ng-model="madre[0].TEL_AUX" name="fecha_na" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text"  maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                                                      </div>
+                                                  </div>         
+                                                  <div class="form-group">
+                                                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                          <button id="button5" button type='submit' class='btn btn-primary'>Cancelar</button>
+                                                          <button id="button6" type='submit' class='btn btn-success' ng-click='enviarDatosPadre()'>Ingresar</button>
+                                                          <button id="button7" button type='submit' class='btn btn-primary'>Cancelar</button>
+                                                          <button id="button8" type='button' class='btn btn-success' ng-click='modificarDatosPadres()'>Modificar</button>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                      </div>
+                      <div id="step-4">
+                          <div class="row">
+                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                  <div class="x_panel">
+
+                                      <form id="demo-form4" data-parsley-validate class="form-horizontal form-label-left">
+                                          <div class="">
+                                              <div class="product_price" >
+                                                  <h1 class="price" id="estado_proceso" style="text-align:center;"></h1>
+                                                  <span class="price-tax" style="text-align:center;">Precione el siguiente boton para imprimir el formulario de pre-matricula</span>
+                                                  <br>
+                                              </div>
+                                          </div>
+
+                                          <div class="">
+                                              <button id="buttonimprimir" type="button" class="btn btn-default btn-lg" ng-click="pre_matriculaInicio()" >Salir</button>
+
+                                          </div>
+
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                    </div>
+                    <!-- End SmartWizard Content -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+        <!-- /page content -->

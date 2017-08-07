@@ -1,0 +1,136 @@
+<div class="col-md-12 col-xs-12" ng-init="NivelesInicio()">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Ingreso paralelos</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <br />
+            <form class="form-horizontal form-label-left" >
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12 ">Paralelo pertenece al nivel:</label>
+                    <div class="col-md-4 col-sm-4 col-xs-12 ">
+                        <select class="form-control" ng-model="seleccionar_nivel" ng-change="mostrarparalelos()">
+                            <option ng-repeat="x in niveles" value="{{x.ID_NIVEL}}">{{x.DESCRIPCION_NIVEL}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Nombre del paralelos</label>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <input type="text" class="form-control" ng-model="nameparalelo" placeholder="Descripcion">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Numero de estudiantes</label>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <input type="number" class="form-control" ng-model="num_estudiantes" placeholder="Unidades">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Filtrar:</label>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <input type="text" ng-model="busquedaPersonal" class="form-control" placeholder="Busqueda" />
+                                    </div>
+                    </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Agregar Personal:</label>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <select class="form-control" ng-model="personalselect" ng-options="item.CEDULA as item.NOMBRE for item in listpersonal | filter : busquedaPersonal" ></select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button type="reset" class="btn btn-primary">Cancel</button>
+                        <button type="button" class="btn btn-success" ng-click="registrarParalelos()">Agregar</button>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+
+                <div class="x_content">
+                    <br />
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Paralelos</h2>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="x_content">
+
+                                <p>Seleccionar para realizar una accion</p>
+
+                                <div class="table-responsive">
+                                    <table class="table table-striped jambo_table bulk_action">
+                                        <thead>
+                                        <tr class="headings">
+
+                                            <th class="column-title" style="text-align:center;">Id Paralelo </th>
+                                            <th class="column-title" style="text-align:center;">Nombre del Paralelo</th>
+                                            <th class="column-title" style="text-align:center;">Cantidad de estudiantes </th>
+                                            <th class="column-title" style="text-align:center;">Profesor </th>
+                                            <th class="column-title" style="text-align:center;">Periodo </th>
+                                            <th class="column-title no-link last" style="text-align:center;"><span class="nobr">Action</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody style="text-align:center;">
+                                        <tr class="even pointer" ng-repeat="x in listaParalelos">
+
+                                            <td class=" " > {{x.ID_PARALELO}}</td>
+                                            <td class=" " >{{x.DESCRIPCION_PARA}} </td>
+                                            <td class=" " >{{x.CANTIDAD_ESTU}} </td>
+                                            <td class=" " >{{x.NOMBRE}} </td>
+                                            <td class=" " >{{peri_actual }} </td>
+                                            <td class=" last">
+                                                <div class="dropdown" >
+                                                    <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary btn-xs" data-target="#" href="/page.html">
+                                                        Accion <span class="caret"></span>
+                                                    </a>
+                                                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                                        <li ><a ng-click="modiParalelos(x)">Modificar</a></li>
+                                                        <li><a ng-click="eliminarParalelos(x)">Borrar</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+

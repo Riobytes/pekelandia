@@ -1,0 +1,77 @@
+<div class="" ng-init="PersonalInicio()">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="x_content">
+                <br />
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Lista del Personal</h2>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <p>Seleccionar para realizar una accion</p>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped jambo_table bulk_action" id="datatablePersonal">
+                                    <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">Cedula </th>
+                                        <th class="column-title" style="text-align:center;">Nombres </th>
+                                        <th class="column-title" style="text-align:center;">Fecha de nacimiento </th>
+                                        <th class="column-title" style="text-align:center;">Direccion </th>
+                                        <th class="column-title" style="text-align:center;">Celular </th>
+                                        <th class="column-title" style="text-align:center;">Fecha de ingreso a la institucion </th>
+                                        <th class="column-title" style="text-align:center;">Cargo </th>
+                                        <th class="column-title" style="text-align:center;">Sueldo </th>
+                                        <th class="column-title" style="text-align:center;">Contrato </th>
+                                        <th class="column-title" style="text-align:center;">Aporte al IESS</th>
+                                        <th class="column-title no-link last"><span class="nobr">Action</span>
+                                        </th>
+                                        <th class="bulk-actions" colspan="7">
+                                            <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                        </th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr class="even pointer" ng-repeat="x in listpersonal">
+
+                                        <td class=" " > {{x.CEDULA}}</td>
+                                        <td class=" " >{{x.NOMBRE}} </td>
+                                        <td class=" " > {{x.FECHA_NACI}}</td>
+                                        <td class=" " >{{x.DIRECCION_DOMI}} </td>
+                                        <td class=" " >{{x.CELULAR}} </td>
+                                        <td class=" " > {{x.FECHA_INGRESO_INST}}</td>
+                                        <td class=" " >{{x.DESCRIPCION}} </td>
+                                        <td class=" " >{{x.SUELDO}} </td>
+                                        <td class=" " > {{x.CONTRATO}}</td>
+                                        <td class=" " >{{x.APORTE_IESS}} </td>
+                                        <td class=" last">
+                                            <div class="dropdown" >
+                                                <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary btn-xs" data-target="#" href="/page.html">
+                                                    Accion <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                                    <li ><a ng-click="modiPersonal(x)">Modificar</a></li>
+                                                    <li><a ng-click="eliminarPersonal(x)">Borrar</a></li>
+                                                    <li><a ng-click="adelantarSueldo(x)">Adelantar Sueldo</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

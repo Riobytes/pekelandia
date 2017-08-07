@@ -1,0 +1,68 @@
+
+
+<div ng-init="initModEstu()">
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Facturacion</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left" ng-submit='enviarModificacion()'>
+                        <h6>Ingrese el numero de cedula del estudiante:</h6>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12" for="cedula" >Ced. estudiante <span class="required">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input type="text" id="cedula" ng-model="estudiante.CEDULA" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <button  type='submit' class='btn btn-success'>Buscar</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12">Representante para facturacion</label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+
+                                <select class="form-control" ng-model="jornadaselect" ng-options="item.ID_JORNADA as item.DESCRIPCION_JORNADA for item in jornadas" id="jornada"></select>
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12"></label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+
+                                <select class="form-control" ng-model="nivelselect" ng-options="item.ID_NIVEL as item.DESCRIPCION_NIVEL for item in niveles" id="nivel"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-3 col-xs-12">Lunch</label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+
+                                <select class="form-control" ng-model="lunchselect" ng-options="item.ID_REFRIGERIO as item.DESCRIPCION_REFRI for item in lunch" id="lunch"></select>
+                            </div>
+                        </div>
+
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button id="button3" button type='submit' class='btn btn-primary'>Cancelar</button>
+                                <button id="button4" type='submit' class='btn btn-success'>Modificar</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>

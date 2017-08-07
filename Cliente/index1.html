@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <!-----estilos -->
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" id="pagesheet"/>
+    <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" />
+    <link rel="stylesheet" type="text/css" href="css/overrideStyles.css" id="pageshee1"/>
+    <!-----angular-->
+    <script src="./js/SH.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular/angular-route.min.js"></script>
+    <script src="js/ngStorage.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/LoginController.js"></script>
+
+</head>
+<body ng-app="myApp">
+
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-----menu -->
+<header>
+    <nav class="navbar navbar-inverse navbar-static-top " role="navigation">
+        <div class="container" >
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menuPrincipal-fm">
+                    <span class="sr-only"> Desplegar/Ocultar </span>
+                    <span class="icon-bar">  </span>
+                    <span class="icon-bar">  </span>
+                    <span class="icon-bar">  </span>
+                </button>
+                <a href="#" class="navbar-brand">PEKELANDIA </a>
+            </div>
+            <!-- Iniciar menu-->
+            <div class="collapse navbar-collapse" id="menuPrincipal-fm">
+                <ul class="nav navbar-nav">
+
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+</header>
+<!-----main -->
+
+<section class="jumbotron" >
+
+    <center><img src="images/logo.png" style="width: 40%"; height="40%"/> <br/></center>
+    <center> <div class="navbar-form">
+        <form name="miFormulario" ng-controller="LoginController">
+            <h2>INGRESO AL SISTEMA</h2>
+            <p data-ng-bind="mensaje"></p>
+            <h3>Nombre de usuario:</h3> <input class="form-control" type="text" ng-model="user.name" name="nombre" required ><br/>
+            <h3> Password:</h3> <input class="form-control" type="password" ng-model="user.pass" name="password" required ><br/><br/>
+            <input class=" btn-primary form-control" type="submit" ng-click="login()" value="Ingresar" />
+
+            <p></p>
+        </form>
+    </div></center>
+</section>
+
+
+
+</body>
+</html>
